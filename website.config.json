@@ -1,13 +1,13 @@
 {
   "site": {
-    "name": "Minimal Starter",
-    "tagline": "Your Creative Canvas",
-    "description": "A clean, minimal starter template providing the perfect foundation for your next project. Built with modern tools and ready for your creativity.",
-    "ogImage": "/og-image.png",
+    "name": "DassReal",
+    "tagline": "Where Innovation Meets Community",
+    "description": "A collaborative platform for NFT creation, material science innovation, community-driven ideas, and educational workshops. Empowering late bloomers and innovators to transform ideas into reality through crowdfunding and local collaboration.",
+    "ogImage": "/innovation-concept.png",
     "twitterHandle": "",
     "contact": {
-      "email": "contact@example.com",
-      "company": "Your Company",
+      "email": "contact@dassreal.info",
+      "company": "DassReal Community",
       "address": ""
     },
     "legal": {
