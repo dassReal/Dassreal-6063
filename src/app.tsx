@@ -7,6 +7,11 @@ import Dashboard from "@/pages/dashboard";
 import Home from "@/pages/home";
 import SignIn from "@/pages/sign-in";
 import SignUp from "@/pages/sign-up";
+import NftStudio from "@/pages/nft-studio";
+import MaterialScience from "@/pages/material-science";
+import InnovationHub from "@/pages/innovation-hub";
+import CommunityGroups from "@/pages/community-groups";
+import Workshops from "@/pages/workshops";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export function App() {
@@ -18,6 +23,48 @@ export function App() {
         {/* Authentication routes */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+
+        {/* Platform Features */}
+        <Route
+          path="/nft-studio"
+          element={
+            <RequireAuth>
+              <NftStudio />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/material-science"
+          element={
+            <RequireAuth>
+              <MaterialScience />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/innovation-hub"
+          element={
+            <RequireAuth>
+              <InnovationHub />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/community-groups"
+          element={
+            <RequireAuth>
+              <CommunityGroups />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/workshops"
+          element={
+            <RequireAuth>
+              <Workshops />
+            </RequireAuth>
+          }
+        />
 
         {/* Billing routes */}
         <Route
