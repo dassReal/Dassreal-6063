@@ -1,31 +1,71 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "my-react-app",
-  "main": "worker/index.ts",
-  "compatibility_flags": ["nodejs_compat"],
-  "compatibility_date": "2025-08-23",
-  "assets": {
-    "directory": "dist/client",
-    "binding": "ASSETS",
-    "not_found_handling": "single-page-application",
-    "run_worker_first": ["/api/*", "/public/*"],
+  // Cloudflare Workers Configuration
+  "name": "dassreal-workers",
+  "type": "service",
+  "main": "src/index.ts",
+  
+  // Environment Configuration
+  "env": {
+    "production": {
+      "name": "dassreal-production",
+      "routes": [
+        {
+          "pattern": "dassreal.com/*",
+          "zone_name": "dassreal.com"
+        }
+      ],
+      "vars": {
+        "ADMIN_EMAIL": "Long@dassreal.com",
+        "ENVIRONMENT": "production",
+        "LOG_LEVEL": "info"
+      },
+      "kv_namespaces": [
+        {
+          "binding": "CACHE",
+          "id": "",
+          "preview_id": ""
+        },
+        {
+          "binding": "CONFIG",
+          "id": "",
+          "preview_id": ""
+        }
+      ]
+    }
   },
-  "observability": {
-    "enabled": true,
+
+  // Build Configuration
+  "build": {
+    "command": "npm run build",
+    "cwd": "./",
+    "main": "src/index.ts"
   },
-  "vars": {
-    "VITE_BETTER_AUTH_URL": "http://localhost:5173",
-    "BETTER_AUTH_SECRET": "",
-    "RUNABLE_SECRET": "",
-    "AUTUMN_SECRET_KEY": "",
-    "RUNABLE_GATEWAY_URL": "http://localhost:8080/gateway/v1",
-  },
-  "d1_databases": [
-    {
-      "binding": "D1",
-      "database_name": "testing",
-      "database_id": "xyz",
-      "migrations_dir": "./drizzle",
-    },
+
+  // Account Configuration
+  "account_id": "",
+  "workers_dev": true,
+  "compatibility_date": "2026-01-14",
+  "compatibility_flags": [
+    "nodejs_compat"
   ],
+
+  // Triggers and Cron Jobs
+  "triggers": {
+    "crons": [
+      "0 0 * * *"
+    ]
+  },
+
+  // Site Configuration (if applicable)
+  "site": {
+    "bucket": "./public"
+  },
+
+  // Observability
+  "observability": {
+    "enabled": true
+  },
+
+  // Cloudflare Account Email
+  "_comment": "Cloudflare Account: nguyencaothanglonger@gmail.com | Last Updated: 2026-01-14 15:19:18 UTC"
 }
